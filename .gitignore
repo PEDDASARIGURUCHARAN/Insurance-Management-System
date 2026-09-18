@@ -1,0 +1,78 @@
+# ==============================================================================
+# Aegis Insurance Management System - Git Ignore
+# ==============================================================================
+
+# Compiled class files & build directories
+**/target/
+target/
+*.class
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven & Gradle
+.mvn/
+mvnw
+mvnw.cmd
+.gradle/
+build/
+
+# Log files
+*.log
+logs/
+**/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node & Frontend dependencies and builds
+**/node_modules/
+node_modules/
+**/dist/
+dist/
+dist-ssr/
+*.local
+
+# Sensitive environment variables & secrets
+.env
+.env.*
+!.env.example
+*.env
+local.properties
+application-local.properties
+application-local.yml
+application-local.yaml
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+
+# IDE & Editor specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+.springBeans
+.factorypath
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
