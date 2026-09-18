@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -281,19 +282,7 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="home-footer">
-        <div className="footer-inner">
-          <div className="brand-logo" style={{ color: '#ffffff' }}>
-            AEGIS ASSURANCE GROUP
-          </div>
-          <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
-            Licensed & Regulated Institutional Insurance Carrier
-          </div>
-        </div>
-        <div className="footer-copy">
-          © {new Date().getFullYear()} Aegis Assurance Group Corporation. All rights reserved. Confidential Policyholder & Staff Gateway.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
