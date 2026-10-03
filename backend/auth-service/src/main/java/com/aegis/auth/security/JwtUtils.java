@@ -27,7 +27,13 @@ public class JwtUtils {
     private long jwtExpirationMs;
 
     private Key getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
+        byte[] keyBytes;
+        try {
+            keyBytes = Decoders.BASE64.decode(jwtSecret);
+        } catch (Exception e) {
+            logger.warn("Configured jwtSecret in auth-service is not valid Base64; falling back to UTF-8 bytes: {}", e.getMessage());
+            keyBytes = jwtSecret.getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        }
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -35,6 +41,7 @@ public class JwtUtils {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", user.getId());
         claims.put("loginId", user.getLoginId());
+        claims.put("username", user.getLoginId());
         claims.put("name", user.getName());
         claims.put("email", user.getEmail());
         claims.put("role", user.getRole().name());

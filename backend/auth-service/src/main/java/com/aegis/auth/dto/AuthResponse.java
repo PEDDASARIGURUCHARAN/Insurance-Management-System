@@ -1,55 +1,38 @@
 package com.aegis.auth.dto;
 
-import com.aegis.auth.enums.Role;
-
 public class AuthResponse {
 
     private String token;
-    private String tokenType = "Bearer";
-    private Long id;
-    private String loginId;
-    private String name;
-    private String email;
-    private Role role;
-    private long expiresIn;
+    private String type = "Bearer";
+    private String username;
+    private String role;
+    private String expire = "24hrs";
 
     public AuthResponse() {
     }
 
-    public AuthResponse(String token, String tokenType, Long id, String loginId, String name, String email, Role role, long expiresIn) {
+    public AuthResponse(String token, String type, String username, String role, String expire) {
         this.token = token;
-        this.tokenType = tokenType;
-        this.id = id;
-        this.loginId = loginId;
-        this.name = name;
-        this.email = email;
+        this.type = type != null ? type : "Bearer";
+        this.username = username;
         this.role = role;
-        this.expiresIn = expiresIn;
+        this.expire = expire != null ? expire : "24hrs";
     }
 
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }
 
-    public String getTokenType() { return tokenType; }
-    public void setTokenType(String tokenType) { this.tokenType = tokenType; }
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
-    public String getLoginId() { return loginId; }
-    public void setLoginId(String loginId) { this.loginId = loginId; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
-
-    public long getExpiresIn() { return expiresIn; }
-    public void setExpiresIn(long expiresIn) { this.expiresIn = expiresIn; }
+    public String getExpire() { return expire; }
+    public void setExpire(String expire) { this.expire = expire; }
 
     public static Builder builder() {
         return new Builder();
@@ -57,25 +40,19 @@ public class AuthResponse {
 
     public static class Builder {
         private String token;
-        private String tokenType = "Bearer";
-        private Long id;
-        private String loginId;
-        private String name;
-        private String email;
-        private Role role;
-        private long expiresIn;
+        private String type = "Bearer";
+        private String username;
+        private String role;
+        private String expire = "24hrs";
 
         public Builder token(String token) { this.token = token; return this; }
-        public Builder tokenType(String tokenType) { this.tokenType = tokenType; return this; }
-        public Builder id(Long id) { this.id = id; return this; }
-        public Builder loginId(String loginId) { this.loginId = loginId; return this; }
-        public Builder name(String name) { this.name = name; return this; }
-        public Builder email(String email) { this.email = email; return this; }
-        public Builder role(Role role) { this.role = role; return this; }
-        public Builder expiresIn(long expiresIn) { this.expiresIn = expiresIn; return this; }
+        public Builder type(String type) { this.type = type; return this; }
+        public Builder username(String username) { this.username = username; return this; }
+        public Builder role(String role) { this.role = role; return this; }
+        public Builder expire(String expire) { this.expire = expire; return this; }
 
         public AuthResponse build() {
-            return new AuthResponse(token, tokenType, id, loginId, name, email, role, expiresIn);
+            return new AuthResponse(token, type, username, role, expire);
         }
     }
 }

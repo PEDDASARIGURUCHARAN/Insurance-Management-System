@@ -44,13 +44,10 @@ public class AuthService {
 
         return AuthResponse.builder()
                 .token(token)
-                .tokenType("Bearer")
-                .id(user.getId())
-                .loginId(user.getLoginId())
-                .name(user.getName())
-                .email(user.getEmail())
-                .role(user.getRole())
-                .expiresIn(jwtUtils.getJwtExpirationMs())
+                .type("Bearer")
+                .username(user.getLoginId())
+                .role(user.getRole().name())
+                .expire("24hrs")
                 .build();
     }
 
@@ -80,13 +77,10 @@ public class AuthService {
 
         return AuthResponse.builder()
                 .token(token)
-                .tokenType("Bearer")
-                .id(saved.getId())
-                .loginId(saved.getLoginId())
-                .name(saved.getName())
-                .email(saved.getEmail())
-                .role(saved.getRole())
-                .expiresIn(jwtUtils.getJwtExpirationMs())
+                .type("Bearer")
+                .username(saved.getLoginId())
+                .role(saved.getRole().name())
+                .expire("24hrs")
                 .build();
     }
 
